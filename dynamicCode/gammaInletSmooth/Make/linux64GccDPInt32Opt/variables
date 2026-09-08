@@ -1,0 +1,1 @@
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libgammaInletSmooth_4c7566854b881c54756e8aca4b9b0d13ad83bd3c

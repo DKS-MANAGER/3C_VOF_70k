@@ -1,0 +1,7 @@
+#!/bin/bash
+# =====================================================================
+# Clean script for 3C_VOF_70k (Preserves tools/ and validation/)
+# =====================================================================
+rm -rf 0 processor* [0-9].* [1-9]* log.* dynamicCode gradPOSC.txt postProcessing
+cp -r 0_org 0
+echo "3C_VOF_70k case cleaned (tools/ and validation/ preserved)."

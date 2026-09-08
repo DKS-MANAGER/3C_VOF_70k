@@ -1,0 +1,1 @@
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libUwaterInletSmooth_ffcd70c4b1a06f320a025549cc9d9a522d686a6d

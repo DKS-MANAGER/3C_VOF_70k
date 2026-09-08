@@ -1,0 +1,35 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \\/     M anipulation  | Author:   Divyansh Kumar Singh (IIT Kanpur)     |
+\*---------------------------------------------------------------------------*/
+FoamFile {
+  version 2.0;
+  format ascii;
+  class dictionary;
+  location "system";
+  object controlDict;
+}
+application sedInterFoam;
+startFrom startTime;
+startTime 0;
+stopAt endTime;
+endTime 30;
+deltaT 1e-5;
+writeControl adjustableRunTime;
+writeInterval 2;
+purgeWrite 0;
+writeFormat ascii;
+writePrecision 6;
+writeCompression off;
+timeFormat general;
+timePrecision 6;
+runTimeModifiable true;
+adjustTimeStep yes;
+maxCo 0.30;       // Enhanced 20% higher accuracy Courant limit
+maxAlphaCo 0.30;  // Enhanced 20% higher accuracy VOF Courant limit
+maxUrCo 0.30;     // Enhanced 20% higher accuracy relative velocity Courant limit
+maxDeltaT 0.0016; // Lower time step ceiling for fine temporal resolution
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

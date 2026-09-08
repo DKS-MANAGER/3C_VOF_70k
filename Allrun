@@ -1,0 +1,45 @@
+#!/bin/bash
+# =====================================================================
+# Allrun script for 3C_VOF_70k (3-Phase sedInterFoam Simulation, Exp 03c Hb/Y=0.70)
+# =====================================================================
+
+if [ -f /usr/lib/openfoam/openfoam2412/etc/bashrc ]; then
+    source /usr/lib/openfoam/openfoam2412/etc/bashrc || true
+elif [ -f /usr/lib/openfoam/openfoam-2412/etc/bashrc ]; then
+    source /usr/lib/openfoam/openfoam-2412/etc/bashrc || true
+fi
+if [ -f ./env_isolated.sh ]; then
+    source ./env_isolated.sh || true
+fi
+
+echo "Stage 1: Cleaning previous run outputs and initializing 0/..."
+rm -rf 0 processor* [0-9].* [1-9]* log.* dynamicCode gradPOSC.txt
+cp -r 0_org 0
+
+echo "Stage 2: Generating 70k mesh with blockMesh..."
+blockMesh > log.blockMesh 2>&1
+
+echo "Stage 3: Running checkMesh..."
+checkMesh -allGeometry -allTopology > log.checkMesh 2>&1
+
+echo "Stage 4: Initializing water (gamma) and sediment bed (alpha.solid) with setFields..."
+setFields > log.setFields 2>&1
+
+echo "Stage 5: Decomposing mesh for 8 parallel cores..."
+decomposePar -force > log.decomposePar 2>&1
+
+echo "Stage 6: Launching sedInterFoam parallel solver (8 cores)..."
+mpirun -np 8 sedInterFoam -parallel > log.sedInterFoam 2>&1 &
+MPI_PID=
+
+echo "Waiting 15 seconds for solver initialization..."
+sleep 15
+
+echo "Simulation running in background (PID: ). Following log.sedInterFoam with tail -f..."
+tail -f --pid= log.sedInterFoam
+
+wait 
+
+echo "====================================================================="
+echo "3C_VOF_70k 3-Phase simulation complete."
+echo "====================================================================="

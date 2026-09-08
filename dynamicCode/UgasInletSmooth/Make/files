@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = ffcd70c4b1a06f320a025549cc9d9a522d686a6d
+ */
+fixedValueFvPatchFieldTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libUgasInletSmooth_ffcd70c4b1a06f320a025549cc9d9a522d686a6d

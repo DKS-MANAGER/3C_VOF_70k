@@ -1,0 +1,112 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \\/     M anipulation  | Author:   Divyansh Kumar Singh (IIT Kanpur)     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U.gas;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0.10 0 0);
+
+boundaryField
+{
+    inlet
+    {
+        type            codedFixedValue;
+        value           uniform (0.10 0 0);
+        name            UgasInletSmooth;
+
+        codeInclude
+        #{
+            #include "fvCFD.H"
+            #include <cmath>
+        #};
+
+        codeOptions
+        #{
+            -I$(LIB_SRC)/finiteVolume/lnInclude \
+            -I$(LIB_SRC)/meshTools/lnInclude
+        #};
+
+        codeLibs
+        #{
+            -lfiniteVolume \
+            -lmeshTools
+        #};
+
+        code
+        #{
+            const fvPatch& boundaryPatch = patch();
+            const vectorField& Cf = boundaryPatch.Cf();
+            vectorField& field = *this;
+
+            const scalar ySurf = 0.1620;
+            const scalar qWater = 0.0254667;
+            const scalar Umax = (8.0 / 7.0) * (qWater / ySurf);
+            const scalar Uair = 0.10;
+
+            forAll(Cf, faceI)
+            {
+                scalar yVal = Cf[faceI].y();
+                scalar gammaVal = 0.5 * (1.0 - tanh((yVal - ySurf) / 0.003));
+                if (yVal <= 0.0)
+                {
+                    gammaVal = 1.0;
+                }
+
+                scalar uWater = 0.0;
+                if (yVal <= 0.0)
+                {
+                    uWater = 0.0;
+                }
+                else if (yVal <= ySurf)
+                {
+                    uWater = Umax * std::pow(std::max(0.0, yVal / ySurf), 1.0 / 7.0);
+                }
+                else
+                {
+                    uWater = Umax;
+                }
+
+                scalar uX = gammaVal * uWater + (1.0 - gammaVal) * Uair;
+                field[faceI] = vector(uX, 0.0, 0.0);
+            }
+        #};
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (0 0 0);
+    }
+    atmosphere
+    {
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+    bottom
+    {
+        type            noSlip;
+    }
+    bridgeDeck
+    {
+        type            noSlip;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -1,0 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \\/     M anipulation  | Case:     3C_VOF Block 12,13,14,7,8,9,17,18 Core |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // Level 1 Buffer Box (n-2 = Level 1: 5.0 mm cell size)
+    // Outer broad buffer surrounding Level 2 box
+    {
+        name    level1CellSet;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-1.00 -0.120 -0.10) (1.30 0.3107 0.10);
+        }
+    }
+
+    // Level 2 Buffer Box (n-1 = Level 2: 2.5 mm cell size)
+    // Intermediate n-1 concentric buffer layer surrounding Level 3 core (Blocks 7,8,9,12,13,14,17,18)
+    {
+        name    level2CellSet;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-0.75 -0.080 -0.10) (1.05 0.260 0.10);
+        }
+    }
+
+    // Level 3 Core Box (Level 3: 1.25 mm cell size)
+    // EXACTLY covers Blocks 7, 8, 9, 12, 13, 14, 17, 18 as requested by user
+    // x in [-0.50, 0.80 m], y in [-0.040, 0.200 m]
+    {
+        name    level3CellSet;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (-0.50 -0.040 -0.10) (0.80 0.200 0.10);
+        }
+    }
+);
+
+// ************************************************************************* //

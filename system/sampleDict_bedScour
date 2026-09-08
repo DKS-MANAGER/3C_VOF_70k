@@ -1,0 +1,515 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \\/     M anipulation  | Author:   Divyansh Kumar Singh (IIT Kanpur)     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      sampleDict_bedScour;
+}
+
+type sets;
+libs ("libsampling.so");
+
+interpolationScheme cellPoint;
+setFormat raw;
+
+fields (alpha.solid);
+
+sets
+(
+    line_x_00
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.5000 -0.100 0.005);
+        end         (-1.5000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_01
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.4500 -0.100 0.005);
+        end         (-1.4500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_02
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.4000 -0.100 0.005);
+        end         (-1.4000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_03
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.3500 -0.100 0.005);
+        end         (-1.3500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_04
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.3000 -0.100 0.005);
+        end         (-1.3000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_05
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.2500 -0.100 0.005);
+        end         (-1.2500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_06
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.2000 -0.100 0.005);
+        end         (-1.2000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_07
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.1500 -0.100 0.005);
+        end         (-1.1500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_08
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.1000 -0.100 0.005);
+        end         (-1.1000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_09
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.0500 -0.100 0.005);
+        end         (-1.0500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_10
+    {
+        type        uniform;
+        axis        y;
+        start       (-1.0000 -0.100 0.005);
+        end         (-1.0000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_11
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.9500 -0.100 0.005);
+        end         (-0.9500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_12
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.9000 -0.100 0.005);
+        end         (-0.9000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_13
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.8500 -0.100 0.005);
+        end         (-0.8500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_14
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.8000 -0.100 0.005);
+        end         (-0.8000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_15
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.7500 -0.100 0.005);
+        end         (-0.7500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_16
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.7000 -0.100 0.005);
+        end         (-0.7000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_17
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.6500 -0.100 0.005);
+        end         (-0.6500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_18
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.6000 -0.100 0.005);
+        end         (-0.6000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_19
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.5500 -0.100 0.005);
+        end         (-0.5500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_20
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.5000 -0.100 0.005);
+        end         (-0.5000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_21
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.4500 -0.100 0.005);
+        end         (-0.4500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_22
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.4000 -0.100 0.005);
+        end         (-0.4000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_23
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.3500 -0.100 0.005);
+        end         (-0.3500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_24
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.3000 -0.100 0.005);
+        end         (-0.3000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_25
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.2500 -0.100 0.005);
+        end         (-0.2500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_26
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.2000 -0.100 0.005);
+        end         (-0.2000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_27
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.1500 -0.100 0.005);
+        end         (-0.1500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_28
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.1000 -0.100 0.005);
+        end         (-0.1000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_29
+    {
+        type        uniform;
+        axis        y;
+        start       (-0.0500 -0.100 0.005);
+        end         (-0.0500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_30
+    {
+        type        uniform;
+        axis        y;
+        start       (0.0000 -0.100 0.005);
+        end         (0.0000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_31
+    {
+        type        uniform;
+        axis        y;
+        start       (0.0500 -0.100 0.005);
+        end         (0.0500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_32
+    {
+        type        uniform;
+        axis        y;
+        start       (0.1000 -0.100 0.005);
+        end         (0.1000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_33
+    {
+        type        uniform;
+        axis        y;
+        start       (0.1500 -0.100 0.005);
+        end         (0.1500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_34
+    {
+        type        uniform;
+        axis        y;
+        start       (0.2000 -0.100 0.005);
+        end         (0.2000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_35
+    {
+        type        uniform;
+        axis        y;
+        start       (0.2500 -0.100 0.005);
+        end         (0.2500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_36
+    {
+        type        uniform;
+        axis        y;
+        start       (0.3000 -0.100 0.005);
+        end         (0.3000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_37
+    {
+        type        uniform;
+        axis        y;
+        start       (0.3500 -0.100 0.005);
+        end         (0.3500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_38
+    {
+        type        uniform;
+        axis        y;
+        start       (0.4000 -0.100 0.005);
+        end         (0.4000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_39
+    {
+        type        uniform;
+        axis        y;
+        start       (0.4500 -0.100 0.005);
+        end         (0.4500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_40
+    {
+        type        uniform;
+        axis        y;
+        start       (0.5000 -0.100 0.005);
+        end         (0.5000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_41
+    {
+        type        uniform;
+        axis        y;
+        start       (0.5500 -0.100 0.005);
+        end         (0.5500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_42
+    {
+        type        uniform;
+        axis        y;
+        start       (0.6000 -0.100 0.005);
+        end         (0.6000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_43
+    {
+        type        uniform;
+        axis        y;
+        start       (0.6500 -0.100 0.005);
+        end         (0.6500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_44
+    {
+        type        uniform;
+        axis        y;
+        start       (0.7000 -0.100 0.005);
+        end         (0.7000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_45
+    {
+        type        uniform;
+        axis        y;
+        start       (0.7500 -0.100 0.005);
+        end         (0.7500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_46
+    {
+        type        uniform;
+        axis        y;
+        start       (0.8000 -0.100 0.005);
+        end         (0.8000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_47
+    {
+        type        uniform;
+        axis        y;
+        start       (0.8500 -0.100 0.005);
+        end         (0.8500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_48
+    {
+        type        uniform;
+        axis        y;
+        start       (0.9000 -0.100 0.005);
+        end         (0.9000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_49
+    {
+        type        uniform;
+        axis        y;
+        start       (0.9500 -0.100 0.005);
+        end         (0.9500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_50
+    {
+        type        uniform;
+        axis        y;
+        start       (1.0000 -0.100 0.005);
+        end         (1.0000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_51
+    {
+        type        uniform;
+        axis        y;
+        start       (1.0500 -0.100 0.005);
+        end         (1.0500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_52
+    {
+        type        uniform;
+        axis        y;
+        start       (1.1000 -0.100 0.005);
+        end         (1.1000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_53
+    {
+        type        uniform;
+        axis        y;
+        start       (1.1500 -0.100 0.005);
+        end         (1.1500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_54
+    {
+        type        uniform;
+        axis        y;
+        start       (1.2000 -0.100 0.005);
+        end         (1.2000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_55
+    {
+        type        uniform;
+        axis        y;
+        start       (1.2500 -0.100 0.005);
+        end         (1.2500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_56
+    {
+        type        uniform;
+        axis        y;
+        start       (1.3000 -0.100 0.005);
+        end         (1.3000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_57
+    {
+        type        uniform;
+        axis        y;
+        start       (1.3500 -0.100 0.005);
+        end         (1.3500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_58
+    {
+        type        uniform;
+        axis        y;
+        start       (1.4000 -0.100 0.005);
+        end         (1.4000  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_59
+    {
+        type        uniform;
+        axis        y;
+        start       (1.4500 -0.100 0.005);
+        end         (1.4500  0.050 0.005);
+        nPoints     300;
+    }
+    line_x_60
+    {
+        type        uniform;
+        axis        y;
+        start       (1.5000 -0.100 0.005);
+        end         (1.5000  0.050 0.005);
+        nPoints     300;
+    }
+);

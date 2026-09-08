@@ -1,0 +1,111 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _b8cf4d35-20260127 OPENFOAM=2412 patch=260127 version=2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : reconstructPar -latestTime
+Date   : Sep 03 2026
+Time   : 10:51:11
+Host   : DESKTOP-VGQQDAN
+PID    : 90063
+I/O    : uncollated
+Case   : /mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Reconstructing fields
+region=region0
+
+Time = 30
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        K
+        alpha.gas
+        alpha.solid
+        alpha.water
+        epsilon.fluid
+        gamma
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor0/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor1/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor2/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor3/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor4/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor5/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor6/30/gamma/boundaryField/inlet"
+Using dynamicCode for patch inlet on field gamma at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor7/30/gamma/boundaryField/inlet"
+        k.fluid
+        muI
+        nuFrs
+        nut.fluid
+        p
+        p_rgh
+        pff
+        ps
+
+    Reconstructing volVectorFields
+
+        U
+        U.fluid
+Using dynamicCode for patch inlet on field U.fluid at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor0/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor1/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor2/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor3/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor4/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor5/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor6/30/U.fluid/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.fluid at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor7/30/U.fluid/boundaryField/inlet"
+        U.gas
+Using dynamicCode for patch inlet on field U.gas at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor0/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor1/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor2/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor3/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor4/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor5/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor6/30/U.gas/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.gas at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor7/30/U.gas/boundaryField/inlet"
+        U.solid
+        U.water
+Using dynamicCode for patch inlet on field U.water at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor0/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor1/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor2/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 33 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor3/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor4/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor5/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor6/30/U.water/boundaryField/inlet"
+Using dynamicCode for patch inlet on field U.water at line 31 in "/mnt/f/DKS/DKS/Exp_3AC/3C_VOF_70k/processor7/30/U.water/boundaryField/inlet"
+        Usclip
+
+    Reconstructing surfaceScalarFields
+
+        phi
+        phi.fluid
+        phi.gas
+        phi.solid
+        phi.water
+        phisclip
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+
+End
+

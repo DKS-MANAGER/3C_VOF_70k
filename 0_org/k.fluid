@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \    /   O peration     | Version:  v2412                                 |
+|   \  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \/     M anipulation  | Author:   Divyansh Kumar Singh (IIT Kanpur)     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      k.fluid;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 8.0e-4;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 0.000198375;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            kqRWallFunction;
+        value           uniform 0.000198375;
+    }
+    atmosphere
+    {
+        type            slip;
+    }
+    bridgeDeck
+    {
+        type            kqRWallFunction;
+        value           uniform 0.000198375;
+    }
+    deckSides
+    {
+        type            kqRWallFunction;
+        value           uniform 0.000198375;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+}

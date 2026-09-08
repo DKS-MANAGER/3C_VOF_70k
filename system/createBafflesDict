@@ -1,0 +1,43 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \\/     M anipulation  | Case:     3C_VOF createBafflesDict              |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      createBafflesDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+internalFacesOnly true;
+
+baffles
+{
+    bridgeDeckBaffle
+    {
+        type        faceZone;
+        zoneName    bridgeDeckFaceSet;
+
+        patches
+        {
+            master
+            {
+                name        bridgeDeck;
+                type        wall;
+            }
+            slave
+            {
+                name        bridgeDeck;
+                type        wall;
+            }
+        }
+    }
+}
+
+// ************************************************************************* //

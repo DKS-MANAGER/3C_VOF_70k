@@ -1,0 +1,88 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Project:  Bridge Deck Pressure-Flow Scour Study |
+|    \\/     M anipulation  | Author:   Divyansh Kumar Singh (IIT Kanpur)     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default         Euler;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+    grad(epsilon.fluid)  cellLimited Gauss linear 1;
+    grad(k.fluid)        cellLimited Gauss linear 1;
+    grad(U.fluid)        cellLimited Gauss linear 1;
+}
+
+divSchemes
+{
+    default         none;
+// alphaEqn
+    div(phi,alphas)  Gauss upwind;
+    div(phir,alphas) Gauss upwind;
+    div(phir,gamma) Gauss linear;
+    div(phi,gamma) Gauss vanLeer;
+// UEqn
+    div((rho*phi.solid),U.solid)    Gauss upwind;
+    div(phi.solid,U.solid) Gauss upwind;
+    div(rhoPhi,U.fluid)    Gauss limitedLinear 1;
+    div(phi.fluid,U.fluid) Gauss limitedLinear 1;
+    div(phiRs,Us)   Gauss upwind;
+    div(phiRf,Uf)   Gauss upwind;
+    div((rho*Rcs)) Gauss linear;
+    div((rhof*Rcf)) Gauss linear;
+    
+// pEqn
+    div(alphas,nu)   Gauss linear;
+// turbulence
+    div(phi.fluid,epsilon.fluid) Gauss limitedLinear 1;
+    div(phi.fluid,k.fluid) Gauss limitedLinear 1;
+    div(alphafPhi.fluid,epsilon.fluid)  Gauss limitedLinear 1;
+    div(alphafPhi.fluid,k.fluid) Gauss limitedLinear 1;
+    
+// ThetaEqn
+    div(phi,Theta)  Gauss limitedLinear 1;
+// alphaPlastic
+    div(phis,alphasPlastic)  Gauss upwind;
+// pa
+    div(phis,ps_new_value)  Gauss upwind;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default  linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+fluxRequired
+{
+    default         no;
+    p_rgh               ;
+    pcorr;
+    gamma;
+}
+
+// ************************************************************************* //

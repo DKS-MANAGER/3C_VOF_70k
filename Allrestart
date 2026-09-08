@@ -1,0 +1,32 @@
+#!/bin/bash
+# =====================================================================
+# Allrestart script for 3C_VOF_70k (Restart sedInterFoam from latestTime)
+# =====================================================================
+
+# 1. Source OpenFOAM 2412 and isolated sedInterFoam environment
+if [ -f /usr/lib/openfoam/openfoam2412/etc/bashrc ]; then
+    source /usr/lib/openfoam/openfoam2412/etc/bashrc || true
+elif [ -f /usr/lib/openfoam/openfoam-2412/etc/bashrc ]; then
+    source /usr/lib/openfoam/openfoam-2412/etc/bashrc || true
+fi
+if [ -f ./env_isolated.sh ]; then
+    source ./env_isolated.sh || true
+fi
+
+echo "Restarting sedInterFoam from latestTime (8 cores)..."
+# Append to log.sedInterFoam so previous log history is preserved
+mpirun -np 8 sedInterFoam -parallel >> log.sedInterFoam 2>&1 &
+MPI_PID=$!
+
+echo "Waiting 15 seconds for solver initialization..."
+sleep 15
+
+echo "Simulation running in background (PID: $MPI_PID). Following log.sedInterFoam with tail -f..."
+echo "Press Ctrl+C to stop following the log (solver will continue running in background)."
+tail -f --pid=$MPI_PID log.sedInterFoam
+
+wait $MPI_PID
+
+echo "====================================================================="
+echo "3C_VOF_70k simulation finished."
+echo "====================================================================="

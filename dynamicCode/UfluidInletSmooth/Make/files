@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = a17575968bf7f66ed8f3f7c28bcb34edd7a291ed
+ */
+fixedValueFvPatchFieldTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libUfluidInletSmooth_a17575968bf7f66ed8f3f7c28bcb34edd7a291ed

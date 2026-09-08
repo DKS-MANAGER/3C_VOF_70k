@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = 7e092f2edabe5ffb1e93bd371710e4c061722311
+ */
+fixedValueFvPatchFieldTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libinlet_omega_01a_7e092f2edabe5ffb1e93bd371710e4c061722311
